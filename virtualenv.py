@@ -1570,8 +1570,10 @@ def install_activate(home_dir, bin_dir, prompt=None):
         # bash script support.
         files['activate.fish'] = ACTIVATE_FISH
 
-        # same for csh/tcsh support...
+        # csh support
         files['activate.csh'] = ACTIVATE_CSH
+        # tcsh support
+        files['activate.tcsh'] = ACTIVATE_TCSH
 
     files['activate_this.py'] = ACTIVATE_THIS
     if hasattr(home_dir, 'decode'):
@@ -2212,21 +2214,21 @@ v95TzzCGLxmf8kbgsVK6Doi12oragasV8mG10i+8dxkwcQcm/A9nRa43
 
 ##file activate.sh
 ACTIVATE_SH = convert("""
-eJytVVFvokAQfudXTLEPtTlLeo9tvMSmJpq02hSvl7u2wRUG2QR2DSxSe7n/frOACEVNLlceRHa+
-nfl25pvZDswCnoDPQ4QoTRQsENIEPci4CsBMZBq7CAsuLOYqvmYKTTj3YxnBgiXBudGBjUzBZUJI
-BXEqgCvweIyuCjeG4eF2F5x14bcB9KQiQQWrjSddI1/oQIx6SYYeoFjzWIoIhYI1izlbhJjkKO7D
-M/QEmKfO9O7WeRo/zr4P7pyHwWxkwitcgwpQ5Ej96OX+PmiFwLeVjFUOrNYKaq1Nud3nR2n8nI2m
-k9H0friPTGVsUdptaxGrTEfpNVFEskxpXtUkkCkl1UNF9cgLBkx48J4EXyALuBtAwNYIjF5kcmUU
-abMKmMq1ULoiRbgsDEkTSsKSGFCJ6Z8vY/2xYiSacmtyAfCDdCNTVZoVF8vSTQOoEwSnOrngBkws
-MYGMBMg8/bMBLSYKS7pYEXP0PqT+ZmBT0Xuy+Pplj5yn4aM9nk72JD8/Wi+Gr98sD9eWSMOwkapD
-BbUv91XSvmyVkICt2tmXR4tWmrcUCsjWOpw87YidEC8i0gdTSOFhouJUNxR+4NYBG0MftoCTD9F7
-2rTtxG3oPwY1b2HncYwhrlmj6Wq924xtGDWqfdNxap+OYxplEurnMVo9RWks+rH8qKEtx7kZT5zJ
-4H7oOFclrN6uFe+d+nW2aIUsSgs/42EIPuOhXq+jEo3S6tX6w2ilNkDnIpHCWdEQhFgwj9pkk7FN
-l/y5eQvRSIQ5+TrL05lewxWpt/Lbhes5cJF3mLET1MGhcKCF+40tNWnUulxrpojwDo2sObdje3Bz
-N3QeHqf3D7OjEXMVV8LN3ZlvuzoWHqiUcNKHtwNd0IbvPGKYYM31nPKCgkUILw3KL+Y8l7aO1ArS
-Ad37nIU0fCj5NE5gQCuC5sOSu+UdI2NeXg/lFkQIlFpdWVaWZRfvqGiirC9o6liJ9FXGYrSY9mI1
-D/Ncozgn13vJvsznr7DnkJWXsyMH7e42ljdJ+aqNDF1bFnKWFLdj31xtaJYK6EXFgqmV/ymD/ROG
-+n8O9H8f5vsGOWXsL1+1k3g=
+eJytVV1v2jAUfc+vuA08QDXIusdWVKIaGkgtVMCYtrYKJjHEUrCj2CGlVf/7rp0ACV/StOaBEN8P
+H997znUFxgGTMGchhWUiFcwoJJL6kDIVgC1FEnsUZow7xFNsRRS14XIeiyXMiAwurQqsRQIe4Vwo
+iBMOTIHPYuqpcG1ZPt1EQa0O7xbgk3BJFURrX3iWWahATPWSCH2gfMViwZeUK1iRmJFZSKXxYnN4
+ggYHu+oO7r+7k95w/LN97z62x10bXuAGVEC58dSPXm4dc9160NdIxMo4btcyaAdBxj5nZ2H8HncH
+/e7goXMMzNZ4AGkXdgBsazoLr+yFIPOSmq7KQCRYVJ8q7IdpGBDuw5sMvkAaMC+AgKwoEHyhyRPL
+pTargCjDhTwVMsIjYYicUAIWiABbjP/mItYfEUHS5KGyCfALeSMSlZsV44s8TclRFwiqurjgBYQv
+qIQUCUh8/bMGTSbcFnkRIXLq75X+rj3CpjdE9vVn1HUnneGoN+gfKb45WiOGb7eOT1cOT8KwVKpT
+DR1dHevk6Oqgheh40LvR1dmm5eYNhMxlY+30JztgF4gLgbTA5oL7VKo40YKie9gqMKLhHDYOF3u7
+N7Rpo8TN1h8WijezszimIV2RkugK2i3vbVlRIgMfqjUUOidLbOS77ojbHv6YPH19+ag7zSbcwq7e
+haO1qrUo9etWXqnioSMR+aUw60CJWPxMxflHIdxx3bte3+23Hzque527FUW+Pe1OM7rGuIIWpeWS
+sjCEOWGhXi96Se2lOa9ZS5eRWgNWA6kNtUxG6DEjPoprnZJ1HfN5Rng4SGGKuWqmCckNXCPnt3nr
+cDMFxo0urR0NT46SE8JvlUIKhCrMBs20bIc3KFXN/d4bte/uO+7jcPDwOD67o+H+lu4mnf3q7uwm
+g+vacNGC1xPaOXTfZaShpIXUU6wLNfR6LkF+tqdGEHqng00qoCcGIyGOLCw+DiFo4wrHqbJgXn4z
+iZjll0oeQikESkXXjpOmafONKpxDqybOKkeKuUpJTB2iszjlwzwVIE43WtgH+zydvsCRQ26z1M4c
+tL4LzO+f/FUYNLq3JGREZndqy47WOIE5NJbZgq2Z/ynXwSdcBf95Dfz7FXBs/GPF/gKR6KRx
 """)
 
 ##file activate.fish
@@ -2263,19 +2265,34 @@ n1wqWmuh6LZAaHxcdeqIlVLhIBJdO9/kbl0It2oEXQj+eGjJOuvOIR/YGRqvFhttUB2XTvLXYN2H
 37CBdbW2W7j2r2+VsCn0doVWcFG1/4y1VwBjfwAyoZhD
 """)
 
+##file activate.tcsh
+ACTIVATE_TCSH = convert("""
+eJx9VNtu2zAMfddXcG7QG1p72GO7dEvXAivQG4q0wNAWtmzRtQBbMiQ5Rvb1o2wny23Tg5GQ55Di
+ocg9mBbSQi5LhKqxDlKExqKAVroCAqsbkyGkUkU8c3LGHYaZLQI4zo2ugH4eh2wPfukGMq6UdmAa
+BdKBkAYzV86994dB4glI53DFZ1IgXEm4LLmV8FV0BpF+/6i4LMNMVxchY7yU3ILARU44cEh3G32L
+H26v4pebp+nz5DZ+nEx/wqcxfIb9fbDoUM2gswWjLVzgMY0iFGz5zsFgwW1xDjuzPD3cPU5X80BN
+tdduvJmmA/4zUec9713+pgvH9f3LkDh4+3R2HPhMgdJKkMk0XgAcYm6psmKt50JnB4zUfu5yS2Ow
+xBlXDmbcSJ6WaEO2wl3PwBjzrIyXJYrx4Sg+YnVjCwEJNVLxCmHU+16/vCdRGMIFRAJnkWrKkm0X
+BEndioTVuhZrSLZTfxKyaxFb7+FKvCiOL2/u4/vJ3XUcnw1oOjKHwyDe0DiOew2DI3AFKgZ0fF4K
+HXelkG8Hh2FpsQP7qEnKLXbotYsECYw7+mpwf/bA1phJXpKGFiHXBiZkUVDxD5kN46CNRLtKQYTC
+ufositq2DX+j4ySVH4LI6ty13GDEfZRoSdoo5O8135adWr/wW5J05GV1/42yUWzPVELmrP/6adZN
+KfyakAq4f0anUjk03cNCH1UarSpU7oTAhGkLmRWdKicw6icHaOM09PxyqWgtcEXbBqH1cdWBI1ZG
+hQNPdeO8yMO4EW7ecloovj00pIN1o8k7Zo6eV48NlqiBS518HS10eIclbKi1n+KFf7GVukmjryu0
+gtOq/89Yv0IY+wNiB62K
+""")
+
 ##file activate.bat
 ACTIVATE_BAT = convert("""
-eJx9VF2L4kAQfN5A/kMjO3cKnqyvSuDWW2+VWz9QTzhYkDHpnME4Eybj14u/fXsmiUZdNg
-+B9FRX9VQX+Yn+SoIMQ9f5L7WEAY+E67hO6xX1PFJ6y+Ou2A35Bl1H4Qb6IegVQijjAJWg
-MvXayi4DA4od+FJo4kmBQyB1Hap4aEFjFyW1jCThShd9JaZ9FJv+ALYJRMKe4kGjSCMprn
-oSrleNjKqDPt+m+RSctPb4nVh8uVlGAm84OHFbJUOW5mzFSJYyRQ3jyWgwnnlVdhJNdjo0
-a8CyEss9anVHv61HmVmmfUp9uQPGgImUOiOb9yezv89vi+5w7rFTkDy5ThRChZXqrdOPJq
-t4XuW9AnctV7inOiE/4S2D3qe+ihKdesyMaGaboGmgubk4ArldXlWkpNig0GnDziWkhgBD
-ci7IbYCSI4/jx1cLKyCL0dvLohC/x7NPztkXBP9mvdGwNxp0M5Lz5y3R+SD34hMZ77Kyy4
-IoVnKrIFFyk2i6sM8pKfdBv94OqxQUHe6vDYVxkKuIL2PMbTtbdrlB1XXAPPfzla51dZMz
-vIRwnVqh/muF/hpIbI8gkMRoocps9gtDn2c9M8iDZaWPWyOpRMIPNtTTP/2xKVjJ+6ltd9
-5Ayb+gCRpLcjJr6vSHL/3JVdKz0m3IC2BxWop2ppUdsPZF1LgwpIAqpL0dyQQf05SrYx2W
-Ww1+jFyYFZuUL2Mu1pRvrSK7I/qp2CHhG1wUzLvVbntty/4ByIuHhg==
+eJx9VF2L4kAQfN5A/kMjO3cKnqyvSuDWW2+VWz9QTzhYkDHpnME4Eybj14u/fXsmiUZdNg+B9FRX
+9VQX+Yn+SoIMQ9f5L7WEAY+E67hO6xX1PFJ6y+Ou2A35Bl1H4Qb6IegVQijjAJWgMvXayi4DA4od
++FJo4kmBQyB1Hap4aEFjFyW1jCThShd9JaZ9FJv+ALYJRMKe4kGjSCMprnoSrleNjKqDPt+m+RSc
+tPb4nVh8uVlGAm84OHFbJUOW5mzFSJYyRQ3jyWgwnnlVdhJNdjo0a8CyEss9anVHv61HmVmmfUp9
+uQPGgImUOiOb9yezv89vi+5w7rFTkDy5ThRChZXqrdOPJqt4XuW9AnctV7inOiE/4S2D3qe+ihKd
+esyMaGaboGmgubk4ArldXlWkpNig0GnDziWkhgBDci7IbYCSI4/jx1cLKyCL0dvLohC/x7NPztkX
+BP9mvdGwNxp0M5Lz5y3R+SD34hMZ77Kyy4IoVnKrIFFyk2i6sM8pKfdBv94OqxQUHe6vDYVxkKuI
+L2PMbTtbdrlB1XXAPPfzla51dZMzvIRwnVqh/muF/hpIbI8gkMRoocps9gtDn2c9M8iDZaWPWyOp
+RMIPNtTTP/2xKVjJ+6ltd95Ayb+gCRpLcjJr6vSHL/3JVdKz0m3IC2BxWop2ppUdsPZF1LgwpIAq
+pL0dyQQf05SrYx2WWw1+jFyYFZuUL2Mu1pRvrSK7I/qp2CHhG1wUzLvVbnttYv8AuXqHbw==
 """)
 
 ##file deactivate.bat
